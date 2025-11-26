@@ -1,0 +1,64 @@
+{
+    "testcase": {
+        "section": "A.3",
+        "description": "Tests a complex but valid command involving pipes, redirections, sequential, and background operators.",
+        "cmds": [
+            {
+                "expect_exit": false,
+                "cmd": "a | b ; c > out.txt & d < in.txt | e ; f >> app.txt &",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [
+                    {
+                        "text": "Invalid Syntax!",
+                        "is_re": false,
+                        "negative_match": true
+                    }
+                ],
+                "ignore_output": false,
+                "cwd_after": null
+            }
+        ],
+        "timeout": 2.0,
+        "strict_prompt": false,
+        "requires_test_folder": false
+    },
+    "events": [
+        {
+            "time": "2025-11-19T22:03:21.085504+05:30",
+            "type": "output",
+            "details": "<osnuser@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:03:21.085864+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='a | b ; c > out.txt & d < in.txt | e ; f >> app.txt &', sequential_outputs=[], nonsequential_outputs=[Line(text='Invalid Syntax!', is_re=False, negative_match=True)], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:03:21.138496+05:30",
+            "type": "output",
+            "details": "Command not found!"
+        },
+        {
+            "time": "2025-11-19T22:03:21.139618+05:30",
+            "type": "output",
+            "details": "No such file or directory"
+        },
+        {
+            "time": "2025-11-19T22:03:21.139823+05:30",
+            "type": "output",
+            "details": "Command not found!"
+        },
+        {
+            "time": "2025-11-19T22:03:21.140382+05:30",
+            "type": "output",
+            "details": "[1] 32"
+        },
+        {
+            "time": "2025-11-19T22:03:21.140806+05:30",
+            "type": "output",
+            "details": "<osnuser@osntesting:~> "
+        }
+    ],
+    "raw_log": "##### START RAW OUTPUT #####\n<osnuser@osntesting:~> a | b ; c > out.txt & d < in.txt | e ; f >> app.txt &\nCommand not found!\r\nNo such file or directory\r\nCommand not found!\r\n[1] 32\r\n<osnuser@osntesting:~> ",
+    "py_log": "2025-11-19 22:03:20,478 - tester.e880ae11-414b-4440-86fd-d321d7ffa48c - INFO - Spawned child:\n    <pexpect.pty_spawn.spawn object at 0x78f017ba65d0>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_f1e20d4a55384e268b13c2d7bdcf6cca', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmpeln9e7sx:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): ''\n    after: None\n    match: None\n    match_index: None\n    exitstatus: None\n    flag_eof: False\n    pid: 2310169\n    child_fd: 105\n    closed: False\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x78f014e2bdc0>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-19 22:03:21,085 - tester.e880ae11-414b-4440-86fd-d321d7ffa48c - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:03:21.085504+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<osnuser@osntesting:~> \"\n    }\n2025-11-19 22:03:21,085 - tester.e880ae11-414b-4440-86fd-d321d7ffa48c - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:03:21.085864+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='a | b ; c > out.txt & d < in.txt | e ; f >> app.txt &', sequential_outputs=[], nonsequential_outputs=[Line(text='Invalid Syntax!', is_re=False, negative_match=True)], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-19 22:03:21,138 - tester.e880ae11-414b-4440-86fd-d321d7ffa48c - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:03:21.138496+05:30\",\n        \"type\": \"output\",\n        \"details\": \"Command not found!\"\n    }\n2025-11-19 22:03:21,139 - tester.e880ae11-414b-4440-86fd-d321d7ffa48c - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:03:21.139618+05:30\",\n        \"type\": \"output\",\n        \"details\": \"No such file or directory\"\n    }\n2025-11-19 22:03:21,139 - tester.e880ae11-414b-4440-86fd-d321d7ffa48c - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:03:21.139823+05:30\",\n        \"type\": \"output\",\n        \"details\": \"Command not found!\"\n    }\n2025-11-19 22:03:21,140 - tester.e880ae11-414b-4440-86fd-d321d7ffa48c - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:03:21.140382+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[1] 32\"\n    }\n2025-11-19 22:03:21,140 - tester.e880ae11-414b-4440-86fd-d321d7ffa48c - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:03:21.140806+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<osnuser@osntesting:~> \"\n    }\n2025-11-19 22:03:21,544 - tester.e880ae11-414b-4440-86fd-d321d7ffa48c - INFO - Finished running testcase. Child info at exit:\n    <pexpect.pty_spawn.spawn object at 0x78f017ba65d0>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_f1e20d4a55384e268b13c2d7bdcf6cca', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmpeln9e7sx:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): ''\n    after: '<osnuser@osntesting:~> '\n    match: <re.Match object; span=(0, 23), match='<osnuser@osntesting:~> '>\n    match_index: 0\n    exitstatus: 129\n    flag_eof: False\n    pid: 2310169\n    child_fd: -1\n    closed: True\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x78f014e2bdc0>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-19 22:03:21,544 - tester.e880ae11-414b-4440-86fd-d321d7ffa48c - INFO - Cleaned up temp_dir: /tmp/tmpeln9e7sx\n"
+}
